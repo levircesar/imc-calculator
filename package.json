@@ -1,0 +1,61 @@
+{
+  "name": "next-pwa-template",
+  "version": "1.0.0",
+  "author": {
+    "name": "Levir Cesar",
+    "email": "levirlemos@gmail.com"
+  },
+  "private": true,
+  "scripts": {
+    "pwa": "next pwa",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "date-fns": "^2.22.1",
+    "dotenv": "^10.0.0",
+    "emailjs-com": "^2.6.4",
+    "formik": "^2.2.5",
+    "next": "^10.0.3",
+    "next-compose-plugins": "^2.2.1",
+    "next-images": "^1.7.0",
+    "next-pwa": "^5.2.21",
+    "nodemailer": "^6.6.1",
+    "rc-progress": "^3.1.4",
+    "react": "^17.0.1",
+    "react-countup": "^4.3.3",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^7.8.8",
+    "react-icons": "^4.2.0",
+    "react-input-mask": "^2.0.4",
+    "react-recaptcha": "^2.3.10",
+    "react-reveal": "^1.2.2",
+    "react-scroll-percentage": "^4.2.0",
+    "react-slick": "^0.28.1",
+    "react-switch": "^6.0.0",
+    "sass": "^1.34.0",
+    "styled-components": "^5.3.0",
+    "terser-webpack-plugin": "^5.1.2",
+    "webpack": "^5.38.1",
+    "yup": "^0.31.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.9",
+    "@types/react": "^17.0.0",
+    "@types/react-input-mask": "^3.0.0",
+    "@types/styled-components": "^5.1.9",
+    "@types/yup": "^0.29.9",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.1.2"
+  }
+}
