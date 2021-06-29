@@ -68,14 +68,14 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter&family=Lexend:wght@500;600&display=swap"
             rel="stylesheet"
           />
-          <meta name="author" content="Moderniza Web" />
+          <meta name="author" content="IMC Calculator" />
           <meta
             name="description"
-            content="A Moderniza Web é uma empresa focada em desenvolvimento web com sites, landing pages, aplicativos. Atua em marketing digital com criação de artes, consultoria em tráfego."
+            content="A IMC Calculator é uma empresa focada em desenvolvimento web com sites, landing pages, aplicativos. Atua em marketing digital com criação de artes, consultoria em tráfego."
           />
           <meta
             name="keywords"
-            content="moderniza web,moderniza,sites,landing pages,aplicativos, ecomerce, loja virtual, empresa, tráfego"
+            content="IMC Calculator,moderniza,sites,landing pages,aplicativos, ecomerce, loja virtual, empresa, tráfego"
           />
           <meta name="robots" content="index,follow" />
           <meta name="format-detection" content="telephone=no" />
@@ -83,7 +83,7 @@ export default class MyDocument extends Document {
           <meta property="og:site_name" content="next-template" />
           <meta
             property="og:description"
-            content="A Moderniza Web é uma empresa focada em desenvolvimento web com sites, landing pages, aplicativos. Atua em marketing digital com criação de artes, consultoria em tráfego."
+            content="A IMC Calculator é uma empresa focada em desenvolvimento web com sites, landing pages, aplicativos. Atua em marketing digital com criação de artes, consultoria em tráfego."
           />
           <meta property="og:url" content="https://modernizaweb.vercel.app" />
           <meta
@@ -98,25 +98,25 @@ export default class MyDocument extends Document {
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
-          <meta name="apple-mobile-web-app-title" content="Moderniza Web" />
+          <meta name="apple-mobile-web-app-title" content="IMC Calculator" />
           <meta
             name="description"
             content="Empresa de criação de Sites,Lojas virtuais, apps, e marketing digital"
           />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="msapplication-TileColor" content=" #d2a754" />
+          <meta name="msapplication-TileColor" content=" #fa320d" />
           <meta name="msapplication-tap-highlight" content="no" />
-          <meta name="theme-color" content="#d2a754" />
+          <meta name="theme-color" content="#fa320d" />
 
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="mask-icon" href="/favicon.ico" color="#d2a754" />
+          <link rel="mask-icon" href="/favicon.ico" color="#fa320d" />
           <link rel="shortcut icon" href="/favicon.ico" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:url" content="" />
-          <meta name="twitter:title" content="Moderniza Web" />
+          <meta name="twitter:title" content="IMC Calculator" />
           <meta
             name="twitter:description"
             content="Empresa de criação de Sites,Lojas virtuais, apps, e marketing digital"
@@ -124,12 +124,12 @@ export default class MyDocument extends Document {
           <meta name="twitter:image" content="" />
           <meta name="twitter:creator" content="@levircesar" />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="Moderniza Web" />
+          <meta property="og:title" content="IMC Calculator" />
           <meta
             property="og:description"
             content="Empresa de criação de Sites,Lojas virtuais, apps, e marketing digital"
           />
-          <meta property="og:site_name" content="Moderniza Web" />
+          <meta property="og:site_name" content="IMC Calculator" />
           <meta property="og:url" content="" />
           <meta property="og:image" content="/favicon.ico" />
           <meta httpEquiv="Content-Language" content="pt-br" />

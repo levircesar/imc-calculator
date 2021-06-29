@@ -1,11 +1,11 @@
 {
-    "theme_color": "##d2a754",
-    "background_color": "##d2a754",
+    "theme_color": "#fa320d",
+    "background_color": "#fa320d",
     "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
-    "name": "modernizaweb",
-    "short_name": "modernizaweb",
+    "name": "IMC - Calculator",
+    "short_name": "imccalculator",
     "icons": [
         {
             "src": "/icon-192x192.png",
