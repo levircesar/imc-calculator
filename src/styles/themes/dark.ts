@@ -11,7 +11,7 @@ const theme = {
     linePrimary: '#fa320d',
     lineSecondary: '#e1e1e6',
     buttonColor: '#fa320d',
-    buttonHover: '#6564db'
+    buttonHover: '#f26146'
   }
 }
 export default theme

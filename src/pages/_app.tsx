@@ -4,21 +4,9 @@ import { ThemeProvider } from 'styled-components'
 import light from '../styles/themes/light'
 import dark from '../styles/themes/dark'
 import GlobalStyle from '../styles/global'
-import { Wrapper, ButtonUp, ButtonWhats, Menu } from '../styles/index'
+import { Menu } from '../styles/index'
 import Link from 'next/link'
-import {
-  FaPhoneSquare,
-  FaWhatsapp,
-  FaFacebook,
-  FaInstagram,
-  FaArrowUp,
-  FaBars,
-  FaTimes,
-  FaSave,
-  FaMoon,
-  FaSun,
-  FaLaptopCode
-} from 'react-icons/fa'
+import { FaBars, FaTimes, FaMoon, FaSun, FaLaptopCode } from 'react-icons/fa'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState(dark)
@@ -77,9 +65,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
               <Link href="/sobre">
                 <button>Sobre</button>
               </Link>
-              <Link href="/contato">
-                <button>Contato</button>
-              </Link>
               <button onClick={toggleTheme}>
                 {theme.title === 'dark' ? <FaSun /> : <FaMoon />}
               </button>
@@ -108,9 +93,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
               </Link>
               <Link href="/sobre">
                 <button>Sobre</button>
-              </Link>
-              <Link href="/contato">
-                <button>Contato</button>
               </Link>
               <button onClick={toggleTheme}>
                 {theme.title === 'dark' ? <FaSun /> : <FaMoon />}

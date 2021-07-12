@@ -1,5 +1,30 @@
 import styled from 'styled-components'
 
+export const Title = styled.div`
+  h2 {
+    color: white;
+    width: 100%;
+    text-align: left;
+    font-size: 3rem;
+    margin-bottom: 5px;
+    span {
+      color: ${props => props.theme.colors.backgroundSecondary};
+    }
+  }
+  h4 {
+    margin-bottom: 5px;
+    color: white;
+    width: 100%;
+    text-align: left;
+    font-size: 2rem;
+  }
+  p {
+    max-width: 400px;
+    font-size: 1.5rem;
+    text-align: left;
+  }
+`
+
 export const Menu = styled.div`
   .desktop {
     display: block;
@@ -12,7 +37,6 @@ export const Menu = styled.div`
         color: white;
         width: 100%;
         margin: 0 20px;
-
         span {
           color: ${props => props.theme.colors.backgroundSecondary};
         }
@@ -119,10 +143,6 @@ export const Menu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${props => props.theme.colors.primary};
-  &:hover {
-    background-color: ${props => props.theme.colors.primary};
-  }
   z-index: 999;
   width: 100%;
   height: 80px;
@@ -187,7 +207,7 @@ export const Container = styled.div`
     .input {
       margin: 10px 0;
       width: 100%;
-      max-width: 300px;
+      max-width: 600px;
       height: 40px;
       border: 0;
       padding-left: 10px;
@@ -197,15 +217,27 @@ export const Container = styled.div`
       }
     }
     button {
-      margin: 20px;
-      width: 120px;
+      margin-top: 20px;
+      margin-right: 20px;
+      max-width: 240px;
+      padding: 0 20px;
       height: 60px;
       border: 0;
+      border-radius: 5px;
       background-color: ${props => props.theme.colors.background};
       color: white;
       font-size: 1.5rem;
       font-weight: bold;
       font-family: 'Roboto';
+      transition: 0.3s;
+      &:hover {
+        background-color: ${props => props.theme.colors.buttonHover};
+      }
+    }
+    .buttons {
+      display: flex;
+      width: 100%;
+      align-items: flex-start;
     }
   }
 `

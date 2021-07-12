@@ -1,33 +1,11 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import { Wrapper, Container } from '../styles/index'
-import {
-  FaPhoneSquare,
-  FaWhatsapp,
-  FaFacebook,
-  FaInstagram,
-  FaArrowUp,
-  FaBars,
-  FaTimes,
-  FaSave,
-  FaMoon,
-  FaSun
-} from 'react-icons/fa'
-import Slider from 'react-slick'
-import ShowButton from '../components/ShowButton'
+import { Wrapper, Container, Title } from '../styles/index'
 import config from 'react-reveal/globals'
-import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
-import emailjs from 'emailjs-com'
-import Recaptcha from 'react-recaptcha'
-import { ThemeProvider } from 'styled-components'
-import light from '../styles/themes/light'
-import dark from '../styles/themes/dark'
 import { useForm, Controller } from 'react-hook-form'
 import InputMask from 'react-input-mask'
-
-import { useRouter } from 'next/router'
 
 config({ ssrFadeout: true })
 
@@ -37,23 +15,14 @@ export default function Home() {
   const [height, setHeight] = useState('')
   const [imcValor, setimcValor] = useState(false)
   const [check, setCheck] = useState(false)
+  const [formStep, SetFormStep] = useState(0)
+  const [resultado, setResultado] = useState({
+    number: '',
+    details: '',
+    result: ''
+  })
 
   useEffect(() => {
-    if (name != '') {
-      document.getElementById('name').style.outline = '3px solid green'
-    } else {
-      document.getElementById('name').style.outline = '3px solid red'
-    }
-    if (weight != '' && weight != 'NaN') {
-      document.getElementById('weight').style.outline = '3px solid green'
-    } else {
-      document.getElementById('weight').style.outline = '3px solid red'
-    }
-    if (height != '' && height != 'NaN') {
-      document.getElementById('height').style.outline = '3px solid green'
-    } else {
-      document.getElementById('height').style.outline = '3px solid red'
-    }
     if (
       name != '' &&
       weight != '' &&
@@ -69,76 +38,76 @@ export default function Home() {
 
   function resultValue(name, valor) {
     if (valor < 18.5) {
-      alert(`
-        ${name} seu IMC é ${valor}, Abaixo de 18.5 Abaixo do Peso Você está abaixo do peso
-        ideal. Isso pode ser apenas uma característica pessoal, mas também pode
-        ser um sinal de desnutrição ou de algum problema de saúde. Caso esteja
-        perdendo peso sem motivo aparente, procure um médico.
-        `)
+      setResultado({
+        number: valor,
+        details: `
+      ${name} ,você está abaixo do peso
+      ideal. Isso pode ser apenas uma característica pessoal, mas também pode
+      ser um sinal de desnutrição ou de algum problema de saúde. Caso esteja
+      perdendo peso sem motivo aparente, procure um médico.
+      `,
+        result: 'Abaixo do Peso'
+      })
     }
     if (valor >= 18.5 && valor < 24.9) {
-      alert(`
-        ${name} seu IMC é ${valor}, Abaixo de 24.9
-        Peso Normal
-        Parabéns, você está com o peso normal. Recomendamos que mantenha hábitos 
-        saudáveis em seu dia a dia. Especialistas sugerem ingerir de 4 a 5 porções
-         diárias de frutas, verduras e legumes, além da prática de exercícios 
-         físicos - pelo menos 150 minutos semanais
-        `)
+      setResultado({
+        number: valor,
+        details: `
+          ${name}, Parabéns, você está com o peso normal. Recomendamos que mantenha hábitos 
+          saudáveis em seu dia a dia. Especialistas sugerem ingerir de 4 a 5 porções
+           diárias de frutas, verduras e legumes, além da prática de exercícios 
+           físicos - pelo menos 150 minutos semanais
+          `,
+        result: 'Peso Normal'
+      })
     }
     if (valor >= 25.0 && valor < 29.9) {
-      alert(`
-        ${name} seu IMC é ${valor},
-        IMC entre 25.0 e 29.9
-        Sobrepeso
-        Atenção! Alguns quilos a mais já são suficientes para que algumas pessoas 
-        desenvolvam doenças associadas, como diabetes
-        e hipertensão. É importante rever seus hábitos. Procure um médico.
-        `)
+      setResultado({
+        number: valor,
+        details: `
+          ${name}, Atenção! Alguns quilos a mais já são suficientes para que algumas pessoas 
+          desenvolvam doenças associadas, como diabetes
+          e hipertensão. É importante rever seus hábitos. Procure um médico.
+          `,
+        result: 'Sobrepeso'
+      })
     }
     if (valor >= 30 && valor < 34.9) {
-      alert(`
-        ${name} seu IMC é ${valor},
-        IMC entre 30.0 e 34.9
-        Obesidade grau I
-        Sinal de alerta! O excesso de peso é fator de risco para desenvolvimento 
-        de outros problemas de saúde. A boa notícia é que uma pequena perda de 
-        peso já traz benefícios à saúde. Procure um médico para definir o tratamento 
-        mais adequado para você.
-        `)
+      setResultado({
+        number: valor,
+        details: `
+          ${name}, Sinal de alerta! O excesso de peso é fator de risco para desenvolvimento 
+          de outros problemas de saúde. A boa notícia é que uma pequena perda de 
+          peso já traz benefícios à saúde. Procure um médico para definir o tratamento 
+          mais adequado para você.
+          `,
+        result: 'Obesidade grau I'
+      })
     }
     if (valor >= 35 && valor < 39.9) {
-      alert(`
-        ${name} seu IMC é ${valor},
-        IMC entre 35.0 e 39.9
-        Obesidade grau II
-        Sinal vermelho! Ao atingir este nível de IMC, o risco de doenças associadas
-        está entre alto e muito alto. Busque ajuda de um profissional de saúde; 
-        não perca tempo
-        `)
+      setResultado({
+        number: valor,
+        details: `
+          ${name}, Sinal vermelho! Ao atingir este nível de IMC, o risco de doenças associadas
+          está entre alto e muito alto. Busque ajuda de um profissional de saúde; 
+          não perca tempo
+          `,
+        result: 'Obesidade grau II'
+      })
     }
     if (valor >= 40) {
-      alert(`
-        ${name} seu IMC é ${valor},
-        IMC acima de 40
-        Obesidade grau III
-        Sinal vermelho! Ao atingir este nível de IMC, o risco de doenças 
-        associadas é muito alto. Busque ajuda de um profissional de saúde;
-        não perca tempo
-        `)
+      setResultado({
+        number: valor,
+        details: `
+          ${name}, Sinal vermelho! Ao atingir este nível de IMC, o risco de doenças 
+          associadas é muito alto. Busque ajuda de um profissional de saúde;
+          não perca tempo
+          `,
+        result: 'Obesidade grau III'
+      })
     }
   }
 
-  function handleDefault() {
-    setName('')
-    setHeight('')
-    setWeight('')
-    document.getElementById('name').innerHTML = ''
-    document.getElementById('weight').innerHTML = ''
-    document.getElementById('height').innerHTML = ''
-
-    setimcValor(false)
-  }
   const submitValue = () => {
     if (check) {
       const details = {
@@ -153,6 +122,7 @@ export default function Home() {
       const valor = Math.round(parseFloat(imc) * 10) / 10
       setimcValor(true)
       resultValue(details.name, valor)
+      SetFormStep(4)
     }
   }
   return (
@@ -175,51 +145,135 @@ export default function Home() {
       <Container>
         <div className="w60 flex column">
           <div className="quiz flex column">
-            <h1>Bem Vindo a Calculadora de IMC</h1>
-            <h3>Preencha os Dados</h3>
-            <input
-              className="input"
-              type="text"
-              name="name"
-              id="name"
-              value={name}
-              placeholder="Digite seu nome..."
-              onChange={e => setName(e.target.value)}
-            />
-            <InputMask
-              className="input"
-              mask="9,99"
-              name="weight"
-              id="weight"
-              value={weight}
-              placeholder="Altura(m)"
-              onChange={e => setWeight(e.target.value)}
-            />
-            <input
-              className="input"
-              type="number"
-              name="height"
-              id="height"
-              value={height}
-              placeholder="Peso(Kg)"
-              onChange={e => setHeight(e.target.value)}
-            />
-            <div>
-              {imcValor ? (
-                <button onClick={handleDefault}>Zerar</button>
-              ) : (
-                <button onClick={submitValue}>Calcular</button>
-              )}
-              {imcValor && (
-                <a href="https://api.whatsapp.com/send?phone=5585998413146&text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20ModernizaWeb">
-                  <button onClick={submitValue}>Ajuda</button>
-                </a>
-              )}
-            </div>
+            {formStep === 0 && (
+              <div className="flex column">
+                <Title>
+                  <h2>
+                    Calculadora de <span>IMC</span>
+                  </h2>
+                  <p>
+                    Sua calculadora online para medir seu índice de massa
+                    corporal
+                  </p>
+                </Title>
+
+                <div className="buttons">
+                  <button onClick={() => SetFormStep(formStep + 1)}>
+                    Começar
+                  </button>
+                </div>
+              </div>
+            )}
+            {formStep === 1 && (
+              <Fade right>
+                <div className="flex column">
+                  <Title>
+                    <h2>
+                      Qual o seu <span>Nome</span>?
+                    </h2>
+                  </Title>
+                  <input
+                    className="input"
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={name}
+                    placeholder="Digite seu nome..."
+                    onChange={e => setName(e.target.value)}
+                  />
+                  <div className="buttons">
+                    <button onClick={() => SetFormStep(formStep - 1)}>
+                      Voltar
+                    </button>
+                    <button onClick={() => SetFormStep(formStep + 1)}>
+                      Próximo
+                    </button>
+                  </div>
+                </div>
+              </Fade>
+            )}
+            {formStep === 2 && (
+              <Fade right>
+                <div className="flex column">
+                  <Title>
+                    <h2>
+                      Qual a sua <span>Altura</span>?
+                    </h2>
+                  </Title>
+                  <InputMask
+                    className="input"
+                    mask="9,99"
+                    name="weight"
+                    id="weight"
+                    value={weight}
+                    placeholder="Altura(m)"
+                    onChange={e => setWeight(e.target.value)}
+                  />
+                  <div className="buttons">
+                    <button onClick={() => SetFormStep(formStep - 1)}>
+                      Voltar
+                    </button>
+                    <button onClick={() => SetFormStep(formStep + 1)}>
+                      Próximo
+                    </button>
+                  </div>
+                </div>
+              </Fade>
+            )}
+            {formStep === 3 && (
+              <Fade right>
+                <div className="flex column">
+                  <Title>
+                    <h2>
+                      Qual o seu <span>Peso</span>?
+                    </h2>
+                  </Title>
+                  <input
+                    className="input"
+                    type="number"
+                    name="height"
+                    id="height"
+                    value={height}
+                    placeholder="Peso(Kg)"
+                    onChange={e => setHeight(e.target.value)}
+                  />
+                  <div className="buttons">
+                    <button onClick={() => SetFormStep(formStep - 1)}>
+                      Voltar
+                    </button>
+                    <button onClick={submitValue}>Calcular</button>
+                  </div>
+                </div>
+              </Fade>
+            )}
+            {formStep === 4 && (
+              <Fade right>
+                <div className="flex column">
+                  <Title>
+                    <h2>
+                      Seu IMC é: <span>{resultado.number}</span>
+                    </h2>
+                    <h4>{resultado.result}</h4>
+                    <p>{resultado.details}</p>
+                  </Title>
+
+                  <div className="buttons">
+                    <button onClick={() => SetFormStep(formStep - 1)}>
+                      Voltar
+                    </button>
+                    {imcValor && (
+                      <a href="https://api.whatsapp.com/send?phone=5585991952642&text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20IMCcalculator">
+                        <button>Nutricionista</button>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </Fade>
+            )}
           </div>
         </div>
         <div className="w40 flex">
-          <img src="robot.svg" alt="sei nao" />
+          <img src="robot.png" alt="sei nao" />
         </div>
       </Container>
     </Wrapper>
