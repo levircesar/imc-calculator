@@ -154,7 +154,6 @@ export const Menu = styled.div`
   transition: 0.5s;
 
   @media screen and (max-width: 800px) {
-    position: unset;
     .desktop {
       display: none;
     }
@@ -174,6 +173,9 @@ export const Container = styled.div`
   width: 100%;
   @media screen and (max-width: 800px) {
     flex-direction: column;
+    .w40 {
+      margin-top: 20px;
+    }
   }
   .flex {
     display: flex;
