@@ -4,7 +4,6 @@ import Head from 'next/head'
 import { Wrapper, Container, Title } from '../styles/index'
 import config from 'react-reveal/globals'
 import Fade from 'react-reveal/Fade'
-import { useForm, Controller } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 
 config({ ssrFadeout: true })
@@ -128,7 +127,7 @@ export default function Home() {
   return (
     <Wrapper>
       <Head>
-        <title>ModernizaWeb | Website</title>
+        <title>IMC - Calculator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="stylesheet"
@@ -262,8 +261,8 @@ export default function Home() {
                       Voltar
                     </button>
                     {imcValor && (
-                      <a href="https://api.whatsapp.com/send?phone=5585991952642&text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20IMCcalculator">
-                        <button>Nutricionista</button>
+                      <a href="https://www.tuasaude.com/calculadora/imc/">
+                        <button>Saiba Mais</button>
                       </a>
                     )}
                   </div>

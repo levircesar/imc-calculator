@@ -2,16 +2,16 @@ const theme = {
   title: 'light',
 
   colors: {
-    background: '#d2a754',
-    backgroundSecondary: '#ffd88c',
+    background: '#fa320d',
+    backgroundSecondary: '#fa320d',
     text: '#0d1317',
-    textSecondary: '#071f29',
+    textSecondary: '#89d2dc',
     primary: '#e1e1e6',
-    secondary: '#101d42',
-    linePrimary: '#826734',
-    lineSecondary: '#826734',
-    buttonColor: '#6564db',
-    buttonHover: '#232ed1'
+    secondary: '#e1e1e6',
+    linePrimary: '#fa320d',
+    lineSecondary: '#0d1317',
+    buttonColor: '#fa320d',
+    buttonHover: '#f26146'
   }
 }
 export default theme
